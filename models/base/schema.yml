@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: ethereum_bridge_events
+    description: "Filtered raw contract logs for Ethereum bridge events."
+    columns:
+      - name: transaction_hash
+        tests:
+          - not_null
+      - name: log_index
+        tests:
+          - not_null
+
+  - name: arbitrum_bridge_events
+    description: "Filtered raw contract logs for Arbitrum bridge events."
+    columns:
+      - name: transaction_hash
+        tests:
+          - not_null
+      - name: log_index
+        tests:
+          - not_null
+
+  - name: optimism_bridge_events
+    description: "Filtered raw contract logs for Optimism bridge events."
+    columns:
+      - name: transaction_hash
+        tests:
+          - not_null
+      - name: log_index
+        tests:
+          - not_null
+
+  - name: avalanche_bridge_events
+    description: "Filtered raw contract logs for Avalanche bridge events."
+    columns:
+      - name: transaction_hash
+        tests:
+          - not_null
+      - name: log_index
+        tests:
+          - not_null
+
+  - name: polygon_bridge_events
+    description: "Filtered raw contract logs for Polygon bridge events."
+    columns:
+      - name: transaction_hash
+        tests:
+          - not_null
+      - name: log_index
+        tests:
+          - not_null

@@ -1,0 +1,92 @@
+version: 2
+
+models:
+  - name: flow_across_matched
+    description: "Across V3 deposit and fill correlated cross-chain flows."
+    columns:
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null
+
+  - name: flow_debridge_matched
+    description: "deBridge DLN order creation and fulfillment correlated flows."
+    columns:
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null
+
+  - name: flow_mayan_matched
+    description: "Mayan Swift swap initiation and fulfillment correlated flows."
+    columns:
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null
+
+  - name: flow_stargate_v1_matched
+    description: "Stargate V1 send and receive correlated cross-chain flows."
+    columns:
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null
+
+  - name: flow_stargate_v2_matched
+    description: "Stargate V2 send and receive correlated cross-chain flows."
+    columns:
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null
+
+  - name: flow_wormhole_matched
+    description: "Portal Bridge / Wormhole token publication and redemption correlated flows."
+    columns:
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null

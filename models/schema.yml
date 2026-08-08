@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: unified_bridge_flows_enriched
+    description: "Enriched cross-chain transaction ledger with token metadata and normalized amounts."
+    columns:
+      - name: bridge_name
+        tests:
+          - not_null
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null
+      - name: destination_chain
+        tests:
+          - not_null

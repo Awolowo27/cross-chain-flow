@@ -1,0 +1,11 @@
+cross_chain_fund:
+  target: prod
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: dbt-project-504908
+      dataset: cross_chain
+      location: US
+      threads: 4
+      timeout_seconds: 300

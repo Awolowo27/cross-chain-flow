@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: crypto_ethereum
+    database: bigquery-public-data
+    schema: crypto_ethereum
+    tables:
+      - name: logs
+      - name: transactions
+      - name: tokens
+
+  - name: goog_blockchain_ethereum_mainnet_us
+    database: bigquery-public-data
+    schema: goog_blockchain_ethereum_mainnet_us
+    tables:
+      - name: logs
+      - name: transactions
+
+  - name: goog_blockchain_arbitrum_one_us
+    database: bigquery-public-data
+    schema: goog_blockchain_arbitrum_one_us
+    tables:
+      - name: logs
+      - name: transactions
+
+  - name: goog_blockchain_optimism_mainnet_us
+    database: bigquery-public-data
+    schema: goog_blockchain_optimism_mainnet_us
+    tables:
+      - name: logs
+      - name: transactions
+
+  - name: goog_blockchain_avalanche_contract_chain_us
+    database: bigquery-public-data
+    schema: goog_blockchain_avalanche_contract_chain_us
+    tables:
+      - name: logs
+      - name: transactions
+
+  - name: goog_blockchain_polygon_mainnet_us
+    database: bigquery-public-data
+    schema: goog_blockchain_polygon_mainnet_us
+    tables:
+      - name: logs
+      - name: transactions
