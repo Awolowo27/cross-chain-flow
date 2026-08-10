@@ -1,0 +1,29 @@
+# dbt Artifacts & Logs
+target/
+dbt_packages/
+logs/
+
+# Python Virtual Environments & Caches
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.python-version
+
+# User & IDE Configs
+.user.yml
+.idea/
+.vscode/
+*.swp
+.DS_Store
+mcp_config.json
+
+# Scratch & Temporary Directories
+01_macros/
+01_models/
+pipeline/
+docs/
+test_herd.js
