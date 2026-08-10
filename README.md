@@ -21,7 +21,7 @@ Representative output from the final enriched analytics dataset (`cross_chain_fu
 | **deBridge DLN** | `0x8f2...e01` | `COMPLETED` | `arbitrum` | `optimism` | 2026-08-06 15:22:10 | 2026-08-06 15:23:02 | 52 | `0x3cd...112` | `WETH` | 2.50 | `WETH` | 2.498 |
 | **Stargate V2** | `0xa1b...902` | `COMPLETED` | `avalanche` | `ethereum` | 2026-08-06 16:00:15 | 2026-08-06 16:04:30 | 255 | `0x77a...44c` | `USDT.e` | 1200.00 | `USDT` | 1199.10 |
 | **Mayan Swift** | `0x33e...aa9` | `PENDING` | `optimism` | `arbitrum` | 2026-08-06 18:05:12 | `NULL` | `NULL` | `0x990...b12` | `USDC` | 750.00 | `USDC` | 748.50 |
-| **Wormhole** | `491028` | `COMPLETED` | `ethereum` | `polygon` | 2026-08-06 19:30:20 | 2026-08-06 19:42:10 | 710 | `0xef0...771` | `WETH` | 0.85 | `WETH` | 0.85 |
+| **Portal bridge** | `491028` | `COMPLETED` | `ethereum` | `polygon` | 2026-08-06 19:30:20 | 2026-08-06 19:42:10 | 710 | `0xef0...771` | `WETH` | 0.85 | `WETH` | 0.85 |
 
 ---
 
@@ -45,7 +45,7 @@ flowchart TD
     end
 
     subgraph Protocol_Layer["Protocol Matching Layer (models/protocols/)"]
-        PROTOCOL_MODELS["flow_*_matched<br/><i>(Across, deBridge, Stargate, Mayan, Wormhole, + Extensible Protocols)</i>"]
+        PROTOCOL_MODELS["flow_*_matched<br/><i>(Across, deBridge, Stargate, Mayan, Portal bridge, + Extensible Protocols)</i>"]
     end
 
     subgraph Unified_Layer["Unified Core Layer (models/unified/)"]

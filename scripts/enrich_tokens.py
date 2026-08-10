@@ -29,9 +29,9 @@ LLAMA_CHAIN_MAP = {
     "polygon": "polygon",
 }
 
-# =============================================================================
+
 # STARGATE & BRIDGE POOL OVERRIDE MAP
-# =============================================================================
+
 POOL_OVERRIDE_MAP = {
     # Stargate V1 / V2 Pools (Ethereum)
     ("0x8731d54e9d02c286767d56ac03e8037c07e01e98", "ethereum"): ("USDC", 6),
