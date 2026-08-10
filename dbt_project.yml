@@ -1,0 +1,30 @@
+name: 'cross_chain_fund'
+version: '1.0.0'
+config-version: 2
+
+profile: 'cross_chain_fund'
+
+model-paths: ["models", "source"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  start_date: '2026-08-06 00:00:00'
+
+models:
+  cross_chain_fund:
+    +materialized: incremental
+    base:
+      +schema: cross_chain_events
+    protocols:
+      +schema: cross_chain_protocol_flows
+    unified:
+      +schema: cross_chain_unified_flows
+    unified_bridge_flows_enriched:
+      +schema: cross_chain_unified_flows
