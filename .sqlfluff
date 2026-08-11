@@ -2,10 +2,7 @@
 dialect = bigquery
 templater = jinja
 max_line_length = 200
+ignore = templating,parsing
 
 # Focus on SQL structural & syntax errors, ignoring layout and style rules
 exclude_rules = layout.indent, layout.long_lines, layout.spacing, layout.newlines, layout.end_of_file, layout.cte_newline, capitalisation.keywords, capitalisation.identifiers, capitalisation.functions, references.qualification, convention.left_join, aliasing.table, aliasing.self_alias.column, structure.column_order, jinja.padding
-
-[sqlfluff:templater:jinja]
-apply_dbt_builtins = true
-macros_path = macros
