@@ -131,7 +131,7 @@ uv run dbt deps
 # 2. Validate graph compilation
 uv run dbt parse
 
-# 3. Validate BigQuery SQL syntax (Offline)
+# 3. Validate BigQuery SQL syntax 
 uv run sqlfluff lint models/
 ```
 
