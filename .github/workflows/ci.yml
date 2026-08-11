@@ -39,4 +39,4 @@ jobs:
 
       - name: Lint BigQuery SQL Syntax (Offline)
         run: |
-          sqlfluff lint models/ --dialect bigquery
+          sqlfluff lint models/ --templater jinja --dialect bigquery
