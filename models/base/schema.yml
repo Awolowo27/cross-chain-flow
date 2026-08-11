@@ -41,12 +41,4 @@ models:
         tests:
           - not_null
 
-  - name: polygon_bridge_events
-    description: "Filtered raw contract logs for Polygon bridge events."
-    columns:
-      - name: transaction_hash
-        tests:
-          - not_null
-      - name: log_index
-        tests:
-          - not_null
+

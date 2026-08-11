@@ -1,0 +1,42 @@
+name: dbt CI & Code Validation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-pipeline:
+    name: Validate Syntax & Pipeline Graph
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv & dbt & sqlfluff
+        run: |
+          pip install uv
+          uv pip install dbt-core dbt-bigquery sqlfluff sqlfluff-templater-dbt --system
+
+      - name: Validate Python Script Syntax
+        run: |
+          python -m py_compile scripts/enrich_tokens.py
+
+      - name: Install dbt Package Dependencies
+        run: |
+          dbt deps --profiles-dir .
+
+      - name: Parse & Validate dbt Graph 
+        run: |
+          dbt parse --profiles-dir .
+
+      - name: Lint BigQuery SQL Syntax (Offline)
+        run: |
+          sqlfluff lint models/ --dialect bigquery

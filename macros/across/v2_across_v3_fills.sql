@@ -6,7 +6,10 @@ SELECT
   block_number,
   transaction_hash AS tx_hash,
   SAFE_CAST(('0x' || RIGHT(topic1, 16)) AS INT64) AS origin_chain_id,
-  {{ hex_to_bignumeric("SUBSTR(topic2, 3, 64)") }} AS deposit_id,
+  COALESCE(
+    CAST(SAFE_CAST(topic2 AS INT64) AS STRING),
+    LOWER(TRIM(topic2))
+  ) AS deposit_id,
   CONCAT('0x', SUBSTR(topic3, 27)) AS relayer,
   CONCAT('0x', SUBSTR(data, 3 + 64*0 + 24, 40)) AS input_token,
   CONCAT('0x', SUBSTR(data, 3 + 64*1 + 24, 40)) AS output_token,

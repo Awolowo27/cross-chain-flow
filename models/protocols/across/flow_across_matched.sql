@@ -28,9 +28,19 @@ across_fills AS (
 
 SELECT
     'Across V3' AS bridge_name,
-    CAST(d.deposit_id AS STRING) AS correlation_id,
+    d.deposit_id AS correlation_id,
     d.deposit_chain AS source_chain,
-    f.fill_chain AS destination_chain,
+    COALESCE(
+        f.fill_chain,
+        CASE d.destination_chain_id
+            WHEN 1 THEN 'ethereum'
+            WHEN 42161 THEN 'arbitrum'
+            WHEN 10 THEN 'optimism'
+            WHEN 43114 THEN 'avalanche'
+            WHEN 137 THEN 'polygon'
+            ELSE 'unknown'
+        END
+    ) AS destination_chain,
     d.block_time AS deposit_timestamp,
     f.block_time AS fill_timestamp,
     TIMESTAMP_DIFF(f.block_time, d.block_time, SECOND) AS time_to_fill_seconds,

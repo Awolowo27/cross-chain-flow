@@ -1,5 +1,5 @@
 cross_chain_fund:
-  target: prod
+  target: dev
   outputs:
     dev:
       type: bigquery

@@ -14,7 +14,8 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values: ['PENDING', 'COMPLETED']
+              arguments:
+                values: ['PENDING', 'COMPLETED']
       - name: source_chain
         tests:
           - not_null

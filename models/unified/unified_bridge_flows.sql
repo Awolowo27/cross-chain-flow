@@ -86,6 +86,8 @@ SELECT * FROM {{ ref('flow_mayan_matched') }}
      )
 {% endif %}
 
+
+
 UNION ALL
 
 SELECT * FROM {{ ref('flow_wormhole_matched') }}
@@ -101,3 +103,4 @@ SELECT * FROM {{ ref('flow_wormhole_matched') }}
        )
      )
 {% endif %}
+
