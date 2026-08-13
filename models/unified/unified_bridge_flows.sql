@@ -104,3 +104,20 @@ SELECT * FROM {{ ref('flow_wormhole_matched') }}
      )
 {% endif %}
 
+UNION ALL
+
+SELECT * FROM {{ ref('flow_allbridge_matched') }}
+{% if is_incremental() %}
+  WHERE deposit_timestamp >= (SELECT TIMESTAMP_SUB(MAX(deposit_timestamp), INTERVAL 3 DAY) FROM {{ this }})
+     OR (
+       deposit_timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)
+       AND correlation_id IN (
+         SELECT correlation_id 
+         FROM {{ this }} 
+         WHERE status = 'PENDING' 
+           AND deposit_timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)
+       )
+     )
+{% endif %}
+
+
