@@ -4,7 +4,7 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 
 # Path to the cross_chain_fund project directory
-PROJECT_DIR = os.getenv("DBT_PROJECT_DIR", "/home/freeman/Cross_chain_fund")
+PROJECT_DIR = os.getenv("DBT_PROJECT_DIR", "/app")
 
 default_args = {
     "owner": "data-engineering",

@@ -9,4 +9,6 @@ dependencies = [
     "google-cloud-bigquery>=3.42.3",
     "sqlfluff>=4.3.0",
     "sqlfluff-templater-dbt>=4.3.0",
+    "apache-airflow>=2.10.0",
 ]
+
