@@ -96,3 +96,20 @@ models:
       - name: source_chain
         tests:
           - not_null
+
+  - name: flow_allbridge_matched
+    description: "Allbridge CCTP interface cross-chain transfers."
+    columns:
+      - name: correlation_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['PENDING', 'COMPLETED']
+      - name: source_chain
+        tests:
+          - not_null
+
